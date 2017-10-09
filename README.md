@@ -10,6 +10,8 @@ Let's say we run the config server using name activiti-cloud-config-server on po
 
 spring.cloud.config.uri=http://activiti-cloud-config-server:8888
 
+Or if our app is connecting to the docker container from outside docker then we would use localhost instead of activiti-cloud-config-server
+
 And in each of the clients its own application name will also feature in its bootstrap.properties:
 
 spring.application.name=${ACT_RB_APP_NAME:runtime-bundle1}

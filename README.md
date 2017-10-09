@@ -8,7 +8,7 @@ Each client will need to have a bootstrap.properties and the spring-cloud-starte
 
 Let's say we run the config server using name activiti-cloud-config-server on port 8888 (similar to https://github.com/hyness/spring-cloud-config-server/blob/master/docker-compose.yml). Then we could include this value in all of the bootstrap.properties:
 
-spring.cloud.config.uri=http://activiti-cloud-config-server:8888
+spring.cloud.config.uri=${ACT_CONFIG_SERVER_URL:http://activiti-cloud-config-server:8888}
 
 Or if our app is connecting to the docker container from outside docker then we would use localhost instead of activiti-cloud-config-server
 

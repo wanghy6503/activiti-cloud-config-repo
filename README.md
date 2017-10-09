@@ -6,15 +6,15 @@ Can be hosted using a standard spring cloud config server e.g. docker image http
 
 Each client will need to have a bootstrap.properties and the spring-cloud-starter-config dependency. The bootstrap.properties needs to provide at least spring.application.name (which should match to the property file in the config server) and the spring.cloud.config.uri to find the config server. The client will look for the config server very early in its startup.
 
-Let's say we run the config server using name activiti-cloud-config-server on port 8888 (similar to https://github.com/hyness/spring-cloud-config-server/blob/master/docker-compose.yml). Then we could use this value in all of the bootstrap.properties:
+Let's say we run the config server using name activiti-cloud-config-server on port 8888 (similar to https://github.com/hyness/spring-cloud-config-server/blob/master/docker-compose.yml). Then we could include this value in all of the bootstrap.properties:
 
 spring.cloud.config.uri=http://activiti-cloud-config-server:8888
 
-And in each of the client's its own application name will feature in the bootstrap.properties:
+And in each of the clients its own application name will also feature in its bootstrap.properties:
 
 spring.application.name=${ACT_RB_APP_NAME:runtime-bundle1}
 spring.application.name=${ACT_GATEWAY_APP_NAME:gateway}
-spring.application.name=${ACT_REGISTRY_APP_NAME:registry
+spring.application.name=${ACT_REGISTRY_APP_NAME:registry} 
 spring.application.name=${ACT_AUDIT_APP_NAME:audit}
 spring.application.name=${ACT_QUERY_APP_NAME:query}
 
